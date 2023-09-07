@@ -1,0 +1,10 @@
+- name: check roboshop username
+  ansible.builtin.command: id roboshop
+    ignore_errors: yes
+  register: output1
+   
+
+- name: install roboshop user if not 
+  ansible.builtin.user:
+    name: roboshop
+  when: output1.rc!=0

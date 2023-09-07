@@ -1,0 +1,32 @@
+- name: install redis repo
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+    state: installed
+    disable_gpg_check: true
+
+- name: create user if not exits
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: createuser
+  
+  
+- name: enable redis 6.2
+  shell: yum module enable redis:remi-6.2 -y
+  
+- name: install redis
+  yum:
+    name: redis
+    state: installed
+  
+
+- name: allow all network 
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+  
+- name: reestart the redis
+  service:
+    name: redis
+    state: started 

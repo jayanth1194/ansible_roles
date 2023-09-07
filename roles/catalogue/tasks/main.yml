@@ -9,16 +9,11 @@
       name: nodejs
       state: installed
   
-  - name: check roboshop username
-    ansible.builtin.command: id roboshop
-    ignore_errors: yes
-    register: output1
-   
+  - name: create username if not exists
+    ansible.builtin.import_roles:
+      name: common
+      tasks_from: createuser.yml
 
-  - name: install roboshop user if not 
-    ansible.builtin.user:
-      name: roboshop
-    when: output1.rc!=0
 
 
 

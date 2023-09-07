@@ -1,6 +1,6 @@
 - name: ansible role roboshop
-  hosts: catalogue
+  hosts: "{{component}}"
   become: yes
   roles:
-  - catalogue
+  - "{{component}}"
   

@@ -6,3 +6,7 @@
 
 [catalogue:vars]
 mongod=172.31.38.230
+
+
+[redis]
+172.31.37.181
