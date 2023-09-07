@@ -15,6 +15,6 @@
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default/roboshop.conf
-    state: present
+   
   notify:
     - restart nginx
