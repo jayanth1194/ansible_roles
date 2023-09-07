@@ -1,5 +1,5 @@
 - name: ansible role roboshop
-  hosts: mongod
+  hosts: catalogue
   become: yes
   roles:
   - catalogue
