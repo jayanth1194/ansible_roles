@@ -2,3 +2,39 @@
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
+
+
+- name: copy the mongob file
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+   
+
+  - name: install mongodb
+    ansible.builtin.command: yum install mongodb-org -y
+    register: output2
+
+  - name: status of installation
+    ansible.builtin.debug:
+      msg: " status of mongodb is success"
+    when: output2.rc == 0
+
+  - name: enable the service 
+    ansible.builtin.service:
+      name: mongod
+      enabled: yes
+
+  - name: start the service 
+    ansible.builtin.service:
+      name: mongod
+      state: started
+  - name: change to all networks
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+  - name: restart the service 
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
+      
