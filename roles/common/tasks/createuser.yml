@@ -1,6 +1,6 @@
 - name: check roboshop username
   ansible.builtin.command: id roboshop
-    ignore_errors: yes
+  ignore_errors: yes
   register: output1
    
 
