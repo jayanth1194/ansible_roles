@@ -1,0 +1,18 @@
+-   name: create path 
+    ansible.builtin.file:
+        path: /app
+        state: directory 
+
+-   name: download application code 
+    ansible.builtin.command: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/{{component}}.zip
+
+-   name: extract the zip file
+    ansible.builtin.unarchive:
+        src: /tmp/{{component}}.zip
+        dest: /app
+    remote_src: yes
+
+
+
+
+

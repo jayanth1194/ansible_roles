@@ -1,0 +1,34 @@
+- name: install node repo
+  ansible.builtin.import_roles:
+    name: common
+    tasks_from: create-node
+  
+- name: crate user if not exists
+  ansible.builtin.import_roles:
+    name: common
+    tasks_from: createuser
+
+- name: create atrificat
+  ansibile.builtin.import_roles:
+    name: common
+    tasks_from: create-app
+  
+- name: install node 
+  npm:
+    path: /app
+
+
+- name: "{{component}} status "
+  ansible.builtin.import_roles:
+    name: common
+    tasks_from: systemd
+
+  
+  
+
+
+  
+ 
+
+
+  

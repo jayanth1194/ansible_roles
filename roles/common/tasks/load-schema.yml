@@ -1,0 +1,10 @@
+ - name: copy the mongod repo
+    copy: 
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  
+  - name: install mongod 
+    shell: yum install mongodb-org-shell -y
+  
+  - name: load the scheme values
+    shell: mongo --host 178.0.9.2 < /app/schema/{{component}}.js

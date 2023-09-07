@@ -1,0 +1,9 @@
+- name: daemon-reload 
+  command: systemctl daemon-reload
+  
+- name: enable and start 
+  service:
+    name: "{{component}}"
+    state: started
+    enabled: true
+  
