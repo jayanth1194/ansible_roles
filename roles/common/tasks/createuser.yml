@@ -8,3 +8,10 @@
   ansible.builtin.user:
     name: roboshop
   when: output1.rc!=0
+
+
+- name: "restart the {{component}}""
+service:
+  name: "{{component}}""
+  state: started 
+  
