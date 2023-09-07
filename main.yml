@@ -1,0 +1,5 @@
+- name: ansible role roboshop
+  hosts: mongod
+  roles:
+  - mongod
+  
