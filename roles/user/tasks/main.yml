@@ -1,15 +1,15 @@
 - name: install node repo
-  ansible.builtin.import_roles:
+  ansible.builtin.import_role:
     name: common
     tasks_from: create-node
   
 - name: crate user if not exists
-  ansible.builtin.import_roles:
+  ansible.builtin.import_role:
     name: common
     tasks_from: createuser
 
 - name: create atrificat
-  ansibile.builtin.import_roles:
+  ansibile.builtin.import_role:
     name: common
     tasks_from: create-app
   
@@ -19,7 +19,7 @@
 
 
 - name: "{{component}} status "
-  ansible.builtin.import_roles:
+  ansible.builtin.import_role:
     name: common
     tasks_from: systemd
 
