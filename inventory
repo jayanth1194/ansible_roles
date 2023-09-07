@@ -1,2 +1,8 @@
 [mongod]
 172.31.46.52
+
+[catalogue]
+172.31.38.46
+
+[catalogue:vars]
+mongod=172.31.38.230
