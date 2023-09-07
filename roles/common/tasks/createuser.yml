@@ -10,8 +10,7 @@
   when: output1.rc!=0
 
 
-- name: "restart the {{component}}""
+- name: "restart the {{component}}"
 service:
-  name: "{{component}}""
+  name: "{{component}}"
   state: started 
-  
