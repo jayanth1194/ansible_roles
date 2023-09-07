@@ -1,0 +1,20 @@
+- name: installing_nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: installed 
+- name: start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+
+
+
+
+
+- name: copy roboshop 
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default/roboshop.conf
+    state: present
+  notify:
+    - restart nginx
