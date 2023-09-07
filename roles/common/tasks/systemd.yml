@@ -12,7 +12,7 @@
   
 - name: enable and start 
   service:
-    name: {{component}}
+    name: "{{component}}"
     state: started
     enabled: true
   
