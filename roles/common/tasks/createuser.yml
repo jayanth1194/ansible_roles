@@ -11,6 +11,6 @@
 
 
 - name: "restart the {{component}}"
-service:
-  name: "{{component}}"
-  state: started 
+  service:
+    name: "{{component}}"
+    state: started 
